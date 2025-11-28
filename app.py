@@ -4,8 +4,7 @@ import datetime
 import pandas as pd
 
 API_URL = 'https://taxifare.lewagon.ai/predict'
-IMAGE_URL = "http://image.bayimg.com/iacejaabe.jpg"
-
+IMAGE_URL = 'http://image.bayimg.com/iacejaabe.jpg'
 
 
 col_text, col_img = st.columns([6, 6])
@@ -42,7 +41,7 @@ with st.form(key='params_form'):
     with col6:
         dropoff_longitude = st.number_input("Longitude", value=-73.984365, format="%f")
 
-    passenger_count = st.slider("Nb passagers", 1, 8, 1)
+    passenger_count = st.slider("Nb passagers", 1, 10, 1)
 
     submitted = st.form_submit_button("Clique !")
 
@@ -65,7 +64,7 @@ if submitted:
         fare = round(prediction.get('fare', 0), 2)
         st.success(f"✅ Le prix de la course est de **{fare} $**")
 
-        st.subheader("Carte de la course")
+        st.subheader("Carte")
         map_data = pd.DataFrame({
             'lat': [pickup_latitude, dropoff_latitude],
             'lon': [pickup_longitude, dropoff_longitude]
