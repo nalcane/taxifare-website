@@ -8,7 +8,7 @@ IMAGE_URL = "http://image.bayimg.com/iacejaabe.jpg"
 
 
 
-col_text, col_img = st.columns([3, 3])
+col_text, col_img = st.columns([6, 6])
 
 st.markdown('''
 #  NYC CAB
