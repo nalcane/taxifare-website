@@ -4,7 +4,7 @@ import datetime
 import pandas as pd
 
 API_URL = 'https://taxifare.lewagon.ai/predict'
-IMAGE_URL = "https://media.licdn.com/dms/image/v2/D4E03AQFUlQG6yqIP0w/profile-displayphoto-shrink_200_200/B4EZeC7.i_HIAY-/0/1750248450671?e=2147483647&v=beta&t=UJbyW4o2HazK-a7LG5vuzbV78XzVtTpNaVv5bDusRZA"
+IMAGE_URL = "http://image.bayimg.com/iacejaabe.jpg"
 
 
 
