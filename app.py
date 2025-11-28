@@ -4,10 +4,17 @@ import datetime
 import pandas as pd
 
 API_URL = 'https://taxifare.lewagon.ai/predict'
+IMAGE_URL = "https://media.licdn.com/dms/image/v2/D4E03AQFUlQG6yqIP0w/profile-displayphoto-shrink_200_200/B4EZeC7.i_HIAY-/0/1750248450671?e=2147483647&v=beta&t=UJbyW4o2HazK-a7LG5vuzbV78XzVtTpNaVv5bDusRZA"
+
+
+
+col_text, col_img = st.columns([3, 1])
 
 st.markdown('''
 #  NYC CAB
 ''')
+with col_img:
+    st.image(IMAGE_URL, width=300)
 
 with st.form(key='params_form'):
     st.subheader("Paramètres de la course")
@@ -37,7 +44,7 @@ with st.form(key='params_form'):
 
     passenger_count = st.slider("Nombre de passagers", 1, 8, 1)
 
-    submitted = st.form_submit_button("Calculer le prix 💰")
+    submitted = st.form_submit_button("Clique !")
 
 
 if submitted:
