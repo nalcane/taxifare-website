@@ -17,32 +17,32 @@ with col_img:
     st.image(IMAGE_URL, width=300)
 
 with st.form(key='params_form'):
-    st.subheader("Paramètres de la course")
+    st.subheader("La course")
 
     col1, col2 = st.columns(2)
     with col1:
-        pickup_date = st.date_input("Date de prise en charge", datetime.date(2013, 7, 6))
+        pickup_date = st.date_input("Date pick up", datetime.date(2013, 7, 6))
     with col2:
-        pickup_time = st.time_input("Heure de prise en charge", datetime.time(17, 18))
+        pickup_time = st.time_input("Heure pick up", datetime.time(17, 18))
 
     pickup_datetime_dt = datetime.datetime.combine(pickup_date, pickup_time)
     pickup_datetime = pickup_datetime_dt.strftime("%Y-%m-%d %H:%M:%S")
 
-    st.subheader("Prise en charge")
+    st.subheader("Pick up")
     col3, col4 = st.columns(2)
     with col3:
         pickup_latitude = st.number_input("Latitude", value=40.783282, format="%f")
     with col4:
         pickup_longitude = st.number_input("Longitude", value=-73.950655, format="%f")
 
-    st.subheader("Lieu de dépose")
+    st.subheader("Drop off")
     col5, col6 = st.columns(2)
     with col5:
         dropoff_latitude = st.number_input("Latitude", value=40.769802, format="%f")
     with col6:
         dropoff_longitude = st.number_input("Longitude", value=-73.984365, format="%f")
 
-    passenger_count = st.slider("Nombre de passagers", 1, 8, 1)
+    passenger_count = st.slider("Nb passagers", 1, 8, 1)
 
     submitted = st.form_submit_button("Clique !")
 
@@ -63,9 +63,9 @@ if submitted:
     if response.status_code == 200:
         prediction = response.json()
         fare = round(prediction.get('fare', 0), 2)
-        st.success(f"✅ Le prix prédit de la course est de **{fare} $**")
+        st.success(f"✅ Le prix de la course est de **{fare} $**")
 
-        st.subheader("Localisation de la course")
+        st.subheader("Carte de la course")
         map_data = pd.DataFrame({
             'lat': [pickup_latitude, dropoff_latitude],
             'lon': [pickup_longitude, dropoff_longitude]
