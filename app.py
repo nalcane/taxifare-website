@@ -8,13 +8,13 @@ IMAGE_URL = "http://image.bayimg.com/iacejaabe.jpg"
 
 
 
-col_text, col_img = st.columns([3, 1])
+col_text, col_img = st.columns([3, 2])
 
 st.markdown('''
 #  NYC CAB
 ''')
 with col_img:
-    st.image(IMAGE_URL, width=300)
+    st.image(IMAGE_URL, width=1000)
 
 with st.form(key='params_form'):
     st.subheader("La course")
