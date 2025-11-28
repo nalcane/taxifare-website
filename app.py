@@ -6,8 +6,7 @@ import pandas as pd
 API_URL = 'https://taxifare.lewagon.ai/predict'
 
 st.markdown('''
-# 🚕 Prédiction du prix d'une course de taxi à NYC
-## **TaxiFareModel**
+#  NYC CAB
 ''')
 
 with st.form(key='params_form'):
@@ -22,14 +21,14 @@ with st.form(key='params_form'):
     pickup_datetime_dt = datetime.datetime.combine(pickup_date, pickup_time)
     pickup_datetime = pickup_datetime_dt.strftime("%Y-%m-%d %H:%M:%S")
 
-    st.subheader("Lieu de prise en charge (Pickup)")
+    st.subheader("Prise en charge")
     col3, col4 = st.columns(2)
     with col3:
         pickup_latitude = st.number_input("Latitude", value=40.783282, format="%f")
     with col4:
         pickup_longitude = st.number_input("Longitude", value=-73.950655, format="%f")
 
-    st.subheader("Lieu de dépose (Dropoff)")
+    st.subheader("Lieu de dépose")
     col5, col6 = st.columns(2)
     with col5:
         dropoff_latitude = st.number_input("Latitude", value=40.769802, format="%f")
